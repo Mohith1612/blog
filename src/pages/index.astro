@@ -7,8 +7,8 @@ const posts = (await getCollection("posts")).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
-const title = "100xNotes";
-const description = "A Dev's Notes";
+const title = "Dev Notes";
+const description = "Technical learnings, projects, and things worth writing about.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -16,7 +16,7 @@ const description = "A Dev's Notes";
 		<h1>{title}</h1>
 		<p class="subtitle">{description}</p>
 		<blockquote class="tagline">
-			Notes and reflections from my journey through the 100xDevs cohort.
+			Technical learnings, side projects, and things I find worth writing about.
 		</blockquote>
 	</section>
 
@@ -55,7 +55,5 @@ const description = "A Dev's Notes";
 		margin: 0 auto;
 		font-family: var(--font-serif);
 	}
-	.red-x {
-		color: var(--color-red-x);
-	}
+
 </style>
