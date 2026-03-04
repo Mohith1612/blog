@@ -1,8 +1,8 @@
-# 100xNotes
+# Dev Notes
 
-A public engineering notebook documenting my learnings during the **100xDevs cohort** by Harkirat Singh.
+A personal blog by Mohith — technical learnings, side projects, and things worth writing about.
 
-This site is a writing-first static blog built with **Astro**, designed to be minimal, clean, and durable. It serves as a personal knowledge base for backend systems, system design, and web development fundamentals.
+This site is a writing-first static blog built with **Astro**, designed to be minimal, clean, and durable. It serves as a personal knowledge base for backend systems, system design, web development, and anything else that catches my attention.
 
 ## Tech Stack
 
