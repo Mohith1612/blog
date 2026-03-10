@@ -1,13 +1,16 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import SeriesNav from "../components/SeriesNav.astro";
 import type { CollectionEntry } from "astro:content";
 import "../styles/prose.css";
 
 interface Props {
     post: CollectionEntry<"posts">;
+    seriesPosts?: CollectionEntry<"posts">[];
 }
 
-const { post } = Astro.props;
+const { post, seriesPosts = [] } = Astro.props;
+const hasSeries = !!post.data.series && seriesPosts.length > 0;
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
@@ -33,6 +36,7 @@ const { post } = Astro.props;
                     }
                 </div>
             </div>
+            {hasSeries && <SeriesNav post={post} seriesPosts={seriesPosts} variant="banner" />}
             <h1>{post.data.title}</h1>
             {
                 post.data.image && (
@@ -44,6 +48,8 @@ const { post } = Astro.props;
         <div class="prose">
             <slot />
         </div>
+
+        {hasSeries && <SeriesNav post={post} seriesPosts={seriesPosts} variant="nav" />}
     </article>
 </BaseLayout>
 
