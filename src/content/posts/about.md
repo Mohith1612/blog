@@ -1,7 +1,7 @@
 ---
 title: "About This Blog"
 description: "What this blog is, what I write about, and why."
-date: 2025-01-05
+date: 2026-01-05
 tags: ["introduction", "meta", "learning"]
 ---
 
