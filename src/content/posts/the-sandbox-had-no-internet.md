@@ -2,7 +2,7 @@
 title: "The Sandbox Had No Internet. The Agents Found One Anyway."
 description: "How OpenAI's evaluation agents turned a package mirror into a message board, escaped their sandbox, and compromised Hugging Face production systems."
 date: 2026-08-27
-tags: ["ai", "security", "incident-response", "infrastructure"]
+tags: ["ai", "security", "incident-response", "infrastructure", "openai", "huggingface"]
 image: "/images/openai-hugging-face-incident-chain.svg"
 imageAlt: "The attack path from OpenAI's evaluation sandbox through Artifactory and into Hugging Face production systems"
 imageWidth: 1200

@@ -10,6 +10,7 @@
       .detail { fill: #5d5a54; font: 18px ui-sans-serif, system-ui, sans-serif; }
       .step { fill: #b83b28; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
       .arrow { fill: none; stroke: #b83b28; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .stat { fill: #b83b28; font: 800 30px ui-sans-serif, system-ui, sans-serif; }
     </style>
     <marker id="head" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
       <path d="M0 0L12 6L0 12Z" fill="#b83b28"/>
@@ -18,6 +19,8 @@
   <rect class="bg" width="1200" height="630" rx="24"/>
 
   <text class="step" x="60" y="62">THE PATH OUT</text>
+  <text class="stat" x="1140" y="55" text-anchor="end">&lt; 13 HOURS</text>
+  <text class="detail" x="1140" y="78" text-anchor="end">code exec → cluster admin</text>
 
   <rect class="box" x="60" y="95" width="260" height="150" rx="14"/>
   <text class="label" x="88" y="143">ExploitGym agents</text>
