@@ -1,35 +1,143 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+
+const pathname = Astro.url.pathname;
+const navItems = [
+    {
+        href: "/",
+        label: "Writing",
+        active: pathname === "/"
+            || pathname.startsWith("/tags")
+            || (pathname.startsWith("/posts/") && pathname !== "/posts/about"),
+    },
+    { href: "/series", label: "Series", active: pathname.startsWith("/series") },
+    { href: "/posts/about", label: "About", active: pathname === "/posts/about" },
+];
 ---
 
-<header>
+<header class="site-header">
     <div class="container">
         <a href="/" class="site-title">Dev Notes</a>
-        <ThemeToggle />
+        <div class="header-actions">
+            <nav aria-label="Primary navigation">
+                {
+                    navItems.map(({ href, label, active }) => (
+                        <a href={href} aria-current={active ? "page" : undefined}>{label}</a>
+                    ))
+                }
+            </nav>
+            <ThemeToggle />
+        </div>
     </div>
 </header>
 
 <style>
-    header {
-        padding: var(--spacing-md) 0;
-        margin-bottom: var(--spacing-xl);
-        border-bottom: 1px solid transparent;
+    .site-header {
+        margin-bottom: clamp(2.5rem, 7vw, var(--spacing-xl));
+        border-bottom: 1px solid var(--color-border);
     }
 
     .container {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--page-gutter);
+        min-height: 4.25rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: var(--spacing-md);
     }
 
     .site-title {
-        font-weight: 700;
+        font-family: var(--font-serif);
+        font-weight: 600;
         color: var(--color-text);
-        font-size: 1.25rem;
+        font-size: 1.35rem;
+        line-height: 1;
+        letter-spacing: -0.015em;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .site-title:hover {
+        color: var(--color-primary);
         text-decoration: none;
     }
 
+    .header-actions,
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-actions {
+        gap: var(--spacing-sm);
+        min-width: 0;
+    }
+
+    nav {
+        gap: clamp(0.75rem, 3vw, 1.25rem);
+    }
+
+    nav a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        padding: 0.4rem 0;
+        border-bottom: 1px solid transparent;
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+    }
+
+    nav a:hover {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    nav a[aria-current="page"] {
+        border-bottom-color: var(--color-primary);
+        color: var(--color-text);
+    }
+
+    @media (max-width: 430px) {
+        .container {
+            min-height: 4rem;
+        }
+
+        .site-title {
+            font-size: 1.2rem;
+        }
+
+        nav {
+            gap: 0.65rem;
+        }
+
+        nav a {
+            font-size: 0.78rem;
+        }
+    }
+
+    @media (max-width: 340px) {
+        .container {
+            gap: var(--spacing-sm);
+        }
+
+        .site-title {
+            font-size: 1.1rem;
+        }
+
+        .header-actions,
+        nav {
+            gap: 0.4rem;
+        }
+
+        nav a {
+            min-width: auto;
+        }
+    }
 </style>

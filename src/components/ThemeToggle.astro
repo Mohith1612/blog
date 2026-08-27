@@ -1,4 +1,4 @@
-<button id="theme-toggle" aria-label="Toggle theme">
+<button id="theme-toggle" type="button" aria-label="Switch theme">
     <!-- Sun -->
     <svg class="icon sun" viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="5"></circle>
@@ -25,22 +25,19 @@
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 1.25rem;
-        padding: 0.5rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        padding: 0;
         color: var(--color-text-muted);
-        transition: color 0.2s ease;
-        border-radius: 8px;
+        border-radius: 999px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition:
-            color 0.2s ease,
-            background-color 0.2s ease;
     }
 
     #theme-toggle:hover {
         color: var(--color-text);
-        background-color: var(--color-border);
+        background-color: var(--color-surface-hover);
     }
 
     .icon {
@@ -78,14 +75,34 @@
 <script is:inline>
     const handleToggleClick = () => {
         const element = document.documentElement;
-        const currentPrice = element.getAttribute("data-theme");
-        const targetTheme = currentPrice === "light" ? "dark" : "light";
+        const currentTheme = element.getAttribute("data-theme");
+        const targetTheme = currentTheme === "light" ? "dark" : "light";
 
         element.setAttribute("data-theme", targetTheme);
-        localStorage.setItem("theme", targetTheme);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute(
+            "content",
+            targetTheme === "dark" ? "#141413" : "#fdfbf7",
+        );
+
+        try {
+            localStorage.setItem("theme", targetTheme);
+        } catch {
+            // The visual toggle still works when storage is unavailable.
+        }
+
+        updateThemeLabel(targetTheme);
     };
 
-    document
-        .getElementById("theme-toggle")
-        .addEventListener("click", handleToggleClick);
+    const themeToggle = document.getElementById("theme-toggle");
+    const updateThemeLabel = (theme) => {
+        const targetTheme = theme === "dark" ? "light" : "dark";
+        const label = `Switch to ${targetTheme} theme`;
+        themeToggle?.setAttribute("aria-label", label);
+        themeToggle?.setAttribute("title", label);
+    };
+
+    if (themeToggle) {
+        updateThemeLabel(document.documentElement.getAttribute("data-theme"));
+        themeToggle.addEventListener("click", handleToggleClick);
+    }
 </script>

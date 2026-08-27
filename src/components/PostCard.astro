@@ -1,93 +1,114 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { slugifySeries } from "../lib/series";
+import { formatPostDate } from "../lib/posts";
 
 interface Props {
     post: CollectionEntry<"posts">;
+    variant?: "default" | "compact";
+    headingLevel?: "h2" | "h3";
+    showSeries?: boolean;
 }
 
-const { post } = Astro.props;
+const {
+    post,
+    variant = "default",
+    headingLevel = "h2",
+    showSeries = true,
+} = Astro.props;
 const { series } = post.data;
 const seriesSlug = series ? slugifySeries(series.name) : null;
+const Heading = headingLevel;
 ---
 
-<article class="post-card">
-    <a href={`/posts/${post.id}`}>
-        <div class="meta">
-            <time datetime={post.data.date.toISOString()}>
-                {
-                    post.data.date.toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                    })
-                }
-            </time>
-            {
-                series && seriesSlug && (
-                    <span class="series-badge">
-                        Part {series.order} of {series.name}
-                    </span>
-                )
-            }
-        </div>
-        <h2>{post.data.title}</h2>
-        <p>{post.data.description}</p>
-        <div class="tags">
-            {post.data.tags.map((tag) => <span class="tag">#{tag}</span>)}
-        </div>
-    </a>
+<article class:list={["post-card", { compact: variant === "compact" }] }>
+    <div class="meta">
+        <time datetime={post.data.date.toISOString()}>{formatPostDate(post.data.date)}</time>
+        {
+            showSeries && series && seriesSlug && (
+                <>
+                    <span class="separator" aria-hidden="true">·</span>
+                    <a href={`/series/${seriesSlug}`} class="series-link">
+                        Part {series.order} · {series.name}
+                    </a>
+                </>
+            )
+        }
+    </div>
+    <Heading>
+        <a href={`/posts/${post.id}`} class="post-title-link">{post.data.title}</a>
+    </Heading>
+    {variant === "default" && <p>{post.data.description}</p>}
+    {
+        variant === "default" && post.data.tags.length > 0 && (
+            <ul class="tags" aria-label="Topics">
+                {post.data.tags.map((tag) => (
+                    <li><a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a></li>
+                ))}
+            </ul>
+        )
+    }
 </article>
 
 <style>
     .post-card {
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
-        transition: border-color 0.2s ease;
-        margin-bottom: var(--spacing-md);
-    }
-
-    .post-card a {
-        display: block;
-        padding: var(--spacing-md);
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .post-card:hover {
-        border-color: var(--color-text-muted);
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--color-border);
     }
 
     .meta {
-        font-size: 0.875rem;
-        color: var(--color-text-muted);
-        margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
-        gap: 0.75rem;
         flex-wrap: wrap;
+        gap: 0.35rem;
+        min-width: 0;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text-muted);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        line-height: 1.5;
     }
 
-    .series-badge {
-        font-size: 0.75rem;
+    time {
+        font-variant-numeric: tabular-nums;
+    }
+
+    .series-link {
+        min-width: 0;
         color: var(--color-primary);
-        border: 1px solid var(--color-primary);
-        padding: 0.1rem 0.5rem;
-        border-radius: 999px;
-        opacity: 0.85;
+        text-decoration: none;
     }
 
-    h2 {
-        font-size: 1.25rem;
+    .series-link:hover {
+        text-decoration: underline;
+    }
+
+    h2,
+    h3 {
+        max-width: 34ch;
         margin-bottom: 0.5rem;
-        color: var(--color-text);
+        font-family: var(--font-serif);
+        font-size: clamp(1.3rem, 4vw, 1.55rem);
         font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+    }
+
+    .post-title-link {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    .post-title-link:hover {
+        color: var(--color-primary);
+        text-decoration: none;
     }
 
     p {
+        max-width: 64ch;
         color: var(--color-text-muted);
         font-size: 1rem;
-        line-height: 1.5;
+        line-height: 1.65;
         margin-bottom: 1rem;
     }
 
@@ -95,14 +116,59 @@ const seriesSlug = series ? slugifySeries(series.name) : null;
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
+        list-style: none;
     }
 
-    .tag {
+    .tags a {
+        display: block;
         font-size: 0.75rem;
         color: var(--color-text-muted);
-        background-color: var(--color-bg);
         border: 1px solid var(--color-border);
-        padding: 0.1rem 0.4rem;
+        padding: 0.15rem 0.45rem;
         border-radius: 999px;
+        text-decoration: none;
+    }
+
+    .tags a:hover {
+        border-color: var(--color-border-strong);
+        color: var(--color-text);
+        background: var(--color-surface);
+        text-decoration: none;
+    }
+
+    .compact {
+        display: grid;
+        grid-template-columns: minmax(8.5rem, 0.35fr) minmax(0, 1fr);
+        gap: var(--spacing-md);
+        align-items: baseline;
+        padding: 1rem 0;
+    }
+
+    .compact .meta,
+    .compact h2,
+    .compact h3 {
+        margin: 0;
+    }
+
+    .compact h2,
+    .compact h3 {
+        max-width: none;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.45;
+        letter-spacing: -0.005em;
+    }
+
+    @media (max-width: 560px) {
+        .compact {
+            grid-template-columns: 1fr;
+            gap: 0.3rem;
+        }
+
+        .separator,
+        .compact .series-link {
+            display: none;
+        }
     }
 </style>

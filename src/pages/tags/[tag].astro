@@ -31,11 +31,12 @@ const sortedPosts = posts.sort(
     description={`All posts tagged with #${tag}`}
 >
     <header class="tag-header">
+        <a href="/tags" class="back-link">← All Topics</a>
         <h1>#{tag}</h1>
         <p>{posts.length} {posts.length === 1 ? "post" : "posts"}</p>
     </header>
 
-    <section class="posts">
+    <section class="posts" aria-label={`Posts tagged ${tag}`}>
         {sortedPosts.map((post) => <PostCard post={post} />)}
     </section>
 </BaseLayout>
@@ -43,16 +44,36 @@ const sortedPosts = posts.sort(
 <style>
     .tag-header {
         margin-bottom: var(--spacing-xl);
-        text-align: center;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+    }
+
+    .back-link:hover {
+        color: var(--color-primary);
     }
 
     h1 {
-        font-size: 2rem;
-        color: var(--color-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text);
+        font-family: var(--font-serif);
+        font-size: clamp(2.25rem, 7vw, 3.5rem);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.05;
     }
 
     p {
         color: var(--color-text-muted);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+    }
+
+    .posts {
+        border-bottom: 1px solid var(--color-border);
     }
 </style>

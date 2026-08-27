@@ -22,15 +22,15 @@ const { name, posts } = Astro.props;
         <header class="page-header">
             <a href="/series" class="back-link">← All Series</a>
             <h1>{name}</h1>
-            <p>{posts.length} {posts.length === 1 ? "post" : "posts"}</p>
+            <p>{posts.length} {posts.length === 1 ? "part" : "parts"}, in reading order.</p>
         </header>
 
         <ol class="posts-list">
             {
                 posts.map((post, i) => (
                     <li>
-                        <span class="order-label">Part {i + 1}</span>
-                        <PostCard post={post} />
+                        <span class="order-label">Part {post.data.series?.order ?? i + 1}</span>
+                        <PostCard post={post} showSeries={false} headingLevel="h2" />
                     </li>
                 ))
             }
@@ -40,7 +40,7 @@ const { name, posts } = Astro.props;
 
 <style>
     .series-detail {
-        padding-top: var(--spacing-lg);
+        max-width: 700px;
     }
 
     .page-header {
@@ -60,8 +60,13 @@ const { name, posts } = Astro.props;
     }
 
     .page-header h1 {
-        font-size: 2rem;
-        margin-bottom: 0.25rem;
+        max-width: 18ch;
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-serif);
+        font-size: clamp(2.25rem, 7vw, 3.5rem);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.05;
     }
 
     .page-header p {
@@ -73,6 +78,7 @@ const { name, posts } = Astro.props;
         list-style: none;
         padding: 0;
         margin: 0;
+        border-bottom: 1px solid var(--color-border);
     }
 
     .posts-list li {
@@ -86,6 +92,7 @@ const { name, posts } = Astro.props;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         display: block;
-        margin-bottom: 0.25rem;
+        margin-bottom: -1rem;
+        padding-top: 1.25rem;
     }
 </style>

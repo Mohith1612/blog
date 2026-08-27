@@ -2,58 +2,204 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
+import { getSeriesGroups } from "../lib/series";
 
-const posts = (await getCollection("posts")).sort(
+const allPosts = await getCollection("posts");
+const posts = allPosts.filter((post) => post.id !== "about").sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+const latestPosts = posts.slice(0, 6);
+const earlierPosts = posts.slice(6);
+const series = [...getSeriesGroups(allPosts).entries()].sort(([, a], [, b]) => {
+	const latestA = Math.max(...a.posts.map((post) => post.data.date.valueOf()));
+	const latestB = Math.max(...b.posts.map((post) => post.data.date.valueOf()));
+	return latestB - latestA;
+});
 
 const title = "Dev Notes";
-const description = "Technical learnings, projects, and things worth writing about.";
+const description = "Technical deep dives on backend systems, infrastructure, performance, and the assumptions that fail in production.";
 ---
 
 <BaseLayout title={title} description={description}>
 	<section class="intro">
-		<h1>{title}</h1>
-		<p class="subtitle">{description}</p>
-		<blockquote class="tagline">
-			Technical learnings, side projects, and things I find worth writing about.
-		</blockquote>
+		<p class="eyebrow">Mohith’s engineering notebook</p>
+		<h1>Notes on building software that holds up.</h1>
+		<p class="intro-copy">{description}</p>
 	</section>
 
-	<section class="posts">
-		{posts.map((post) => <PostCard post={post} />)}
+	<section class="content-section" aria-labelledby="latest-heading">
+		<header class="section-heading">
+			<h2 id="latest-heading">Latest Notes</h2>
+			<span>{posts.length} notes</span>
+		</header>
+		<div class="post-list">
+			{latestPosts.map((post) => <PostCard post={post} headingLevel="h3" />)}
+		</div>
 	</section>
+
+	{
+		series.length > 0 && (
+			<section class="content-section" aria-labelledby="series-heading">
+				<header class="section-heading">
+					<h2 id="series-heading">Browse Series</h2>
+					<a href="/series">View all</a>
+				</header>
+				<ul class="series-list">
+					{series.map(([slug, { name, posts: seriesPosts }]) => (
+						<li>
+							<a href={`/series/${slug}`}>
+								<span class="series-name">{name}</span>
+								<span class="series-count">
+									{seriesPosts.length} {seriesPosts.length === 1 ? "part" : "parts"}
+								</span>
+								<span class="arrow" aria-hidden="true">→</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+
+	{
+		earlierPosts.length > 0 && (
+			<section class="content-section" aria-labelledby="earlier-heading">
+				<header class="section-heading">
+					<h2 id="earlier-heading">Earlier Notes</h2>
+				</header>
+				<div class="post-list compact-list">
+					{earlierPosts.map((post) => (
+						<PostCard post={post} variant="compact" headingLevel="h3" />
+					))}
+				</div>
+			</section>
+		)
+	}
 </BaseLayout>
 
 <style>
 	.intro {
-		margin-bottom: var(--spacing-xl);
-		text-align: center;
+		max-width: 700px;
+		margin-bottom: clamp(3.5rem, 10vw, 6rem);
 		border-bottom: 1px solid var(--color-border);
-		padding-bottom: var(--spacing-lg);
+		padding-bottom: clamp(2.5rem, 7vw, 4rem);
 	}
 
 	h1 {
-		font-size: 2.5rem;
-		font-weight: 700;
-		margin-bottom: 0.5rem;
+		max-width: 14ch;
+		margin-bottom: var(--spacing-md);
 		color: var(--color-text);
+		font-family: var(--font-serif);
+		font-size: clamp(2.5rem, 8vw, 4.5rem);
+		font-weight: 600;
+		letter-spacing: -0.045em;
+		line-height: 0.98;
 	}
 
-	.subtitle {
-		font-size: 1.25rem;
+	.eyebrow {
+		margin-bottom: var(--spacing-md);
+		color: var(--color-primary);
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.intro-copy {
+		max-width: 58ch;
 		color: var(--color-text-muted);
 		font-family: var(--font-serif);
-		margin-bottom: var(--spacing-lg);
+		font-size: clamp(1.1rem, 3vw, 1.3rem);
+		line-height: 1.65;
 	}
 
-	.tagline {
-		font-size: 1.125rem;
-		font-style: italic;
+	.content-section + .content-section {
+		margin-top: clamp(3.5rem, 9vw, 5rem);
+	}
+
+	.section-heading {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.section-heading h2 {
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.section-heading span,
+	.section-heading a {
+		color: var(--color-text-muted);
+		font-size: 0.8rem;
+	}
+
+	.section-heading a:hover {
 		color: var(--color-text);
-		max-width: 600px;
-		margin: 0 auto;
-		font-family: var(--font-serif);
 	}
 
+	.post-list {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.series-list {
+		border-bottom: 1px solid var(--color-border);
+		list-style: none;
+	}
+
+	.series-list li {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.series-list a {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto auto;
+		align-items: center;
+		gap: var(--spacing-md);
+		padding: 1rem 0;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.series-list a:hover .series-name {
+		color: var(--color-primary);
+	}
+
+	.series-name {
+		min-width: 0;
+		font-family: var(--font-serif);
+		font-size: 1.1rem;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.series-count {
+		color: var(--color-text-muted);
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		white-space: nowrap;
+	}
+
+	.arrow {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 540px) {
+		.intro {
+			margin-bottom: 3rem;
+		}
+
+		.series-list a {
+			grid-template-columns: minmax(0, 1fr) auto;
+		}
+
+		.series-count {
+			display: none;
+		}
+	}
 </style>

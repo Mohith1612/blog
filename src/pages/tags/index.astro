@@ -1,0 +1,124 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("posts")).filter((post) => post.id !== "about");
+const topics = [...posts.flatMap((post) => post.data.tags).reduce((counts, tag) => {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    return counts;
+}, new Map<string, number>()).entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+---
+
+<BaseLayout title="Topics — Dev Notes" description="Browse Dev Notes by topic">
+    <section class="topics-index">
+        <header class="page-header">
+            <p class="eyebrow">Index</p>
+            <h1>Topics</h1>
+            <p class="description">The systems, tools, and engineering questions these notes keep returning to.</p>
+        </header>
+
+        <ul class="topic-list">
+            {
+                topics.map(([topic, count]) => (
+                    <li>
+                        <a href={`/tags/${encodeURIComponent(topic)}`}>
+                            <span>#{topic}</span>
+                            <span class="count">{count} {count === 1 ? "note" : "notes"}</span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</BaseLayout>
+
+<style>
+    .topics-index {
+        max-width: 700px;
+    }
+
+    .page-header {
+        margin-bottom: clamp(2.5rem, 7vw, var(--spacing-xl));
+    }
+
+    .eyebrow {
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-primary);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1;
+    }
+
+    .description {
+        max-width: 55ch;
+        color: var(--color-text-muted);
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        line-height: 1.65;
+    }
+
+    .topic-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--color-border);
+        list-style: none;
+    }
+
+    .topic-list li {
+        min-width: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .topic-list li:nth-child(odd) {
+        padding-right: var(--spacing-md);
+    }
+
+    .topic-list li:nth-child(even) {
+        padding-left: var(--spacing-md);
+        border-left: 1px solid var(--color-border);
+    }
+
+    .topic-list a {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--spacing-sm);
+        padding: 0.85rem 0;
+        color: var(--color-text);
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+
+    .topic-list a:hover {
+        color: var(--color-primary);
+    }
+
+    .count {
+        flex: 0 0 auto;
+        color: var(--color-text-muted);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 560px) {
+        .topic-list {
+            grid-template-columns: 1fr;
+        }
+
+        .topic-list li:nth-child(odd),
+        .topic-list li:nth-child(even) {
+            padding: 0;
+            border-left: 0;
+        }
+    }
+</style>

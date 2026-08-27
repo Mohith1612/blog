@@ -10,8 +10,9 @@ const seriesGroups = getSeriesGroups(allPosts);
 <BaseLayout title="Series — Dev Notes" description="All blog series">
     <section class="series-index">
         <header class="page-header">
+            <p class="eyebrow">Collections</p>
             <h1>Series</h1>
-            <p>{seriesGroups.size} {seriesGroups.size === 1 ? "series" : "series"}</p>
+            <p class="description">Long-form explorations of one system, built and examined piece by piece.</p>
         </header>
 
         {
@@ -25,8 +26,11 @@ const seriesGroups = getSeriesGroups(allPosts);
                 [...seriesGroups.entries()].map(([slug, { name, posts }]) => (
                     <li>
                         <a href={`/series/${slug}`} class="series-card">
-                            <h2>{name}</h2>
-                            <span class="count">{posts.length} {posts.length === 1 ? "post" : "posts"}</span>
+                            <span>
+                                <span class="count">{posts.length} {posts.length === 1 ? "part" : "parts"}</span>
+                                <h2>{name}</h2>
+                            </span>
+                            <span class="arrow" aria-hidden="true">→</span>
                         </a>
                     </li>
                 ))
@@ -37,21 +41,37 @@ const seriesGroups = getSeriesGroups(allPosts);
 
 <style>
     .series-index {
-        padding-top: var(--spacing-lg);
+        max-width: 700px;
     }
 
     .page-header {
-        margin-bottom: var(--spacing-xl);
+        margin-bottom: clamp(2.5rem, 7vw, var(--spacing-xl));
     }
 
     .page-header h1 {
-        font-size: 2rem;
-        margin-bottom: 0.25rem;
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1;
     }
 
-    .page-header p {
+    .eyebrow {
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-primary);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .page-header .description {
+        max-width: 55ch;
         color: var(--color-text-muted);
-        font-size: 0.875rem;
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        line-height: 1.65;
     }
 
     .series-list {
@@ -60,36 +80,44 @@ const seriesGroups = getSeriesGroups(allPosts);
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
+        border-bottom: 1px solid var(--color-border);
     }
 
     .series-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: var(--spacing-md);
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
+        gap: var(--spacing-md);
+        padding: 1.25rem 0;
+        border-top: 1px solid var(--color-border);
         text-decoration: none;
         color: inherit;
-        transition: border-color 0.2s ease;
     }
 
-    .series-card:hover {
-        border-color: var(--color-text-muted);
+    .series-card:hover h2 {
+        color: var(--color-primary);
     }
 
     .series-card h2 {
-        font-size: 1.125rem;
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
         font-weight: 600;
         color: var(--color-text);
         margin: 0;
+        line-height: 1.35;
     }
 
     .count {
-        font-size: 0.875rem;
+        display: block;
+        margin-bottom: var(--spacing-xs);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
         color: var(--color-text-muted);
         white-space: nowrap;
+    }
+
+    .arrow {
+        color: var(--color-primary);
     }
 
     .empty {

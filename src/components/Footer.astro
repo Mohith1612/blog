@@ -1,21 +1,59 @@
 <footer>
     <div class="container">
-        <p>&copy; {new Date().getFullYear()} Mohith.</p>
+        <p class="footer-mark">&copy; {new Date().getFullYear()} Mohith.</p>
+        <nav aria-label="Footer navigation">
+            <a href="/series">Series</a>
+            <a href="/tags">Topics</a>
+            <a href="/posts/about">About</a>
+            <a href="/rss.xml">RSS</a>
+        </nav>
     </div>
 </footer>
 
 <style>
     footer {
-        padding: var(--spacing-xl) 0;
+        padding: var(--spacing-lg) 0;
         margin-top: var(--spacing-xl);
+        border-top: 1px solid var(--color-border);
         color: var(--color-text-muted);
         font-size: 0.875rem;
-        text-align: center;
     }
 
     .container {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--page-gutter);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-md);
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: var(--spacing-md);
+    }
+
+    a {
+        color: var(--color-text-muted);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--color-text);
+        text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+        .container {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        nav {
+            justify-content: flex-start;
+        }
     }
 </style>

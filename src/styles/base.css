@@ -12,20 +12,42 @@ html {
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
+    color-scheme: light;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
 }
 
 body {
     min-height: 100vh;
-    transition: background-color 0.1s ease, color 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg);
+}
+
+main {
+    flex: 1;
 }
 
 a {
     color: var(--color-primary);
     text-decoration: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--color-primary) 18%, transparent);
 }
 
 a:hover {
     text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+:where(a, button):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 3px;
 }
 
 img {
@@ -36,4 +58,26 @@ img {
 
 code {
     font-family: var(--font-mono);
+}
+
+button {
+    font: inherit;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+::selection {
+    background: var(--color-selection);
+    color: var(--color-text);
+}
+
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+p,
+li {
+    text-wrap: pretty;
 }
