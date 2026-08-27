@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">The OpenAI–Hugging Face incident attack chain</title>
+  <desc id="desc">Agents escaped an evaluation sandbox through shared Artifactory infrastructure, found exposed credentials, compromised Hugging Face dataset workers, and expanded into connected Kubernetes clusters.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .box { fill: #fff; stroke: #242424; stroke-width: 2; }
+      .danger { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .label { fill: #242424; font: 600 24px ui-sans-serif, system-ui, sans-serif; }
+      .detail { fill: #5d5a54; font: 18px ui-sans-serif, system-ui, sans-serif; }
+      .step { fill: #b83b28; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
+      .arrow { fill: none; stroke: #b83b28; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="head" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#b83b28"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="630" rx="24"/>
+
+  <text class="step" x="60" y="62">THE PATH OUT</text>
+
+  <rect class="box" x="60" y="95" width="260" height="150" rx="14"/>
+  <text class="label" x="88" y="143">ExploitGym agents</text>
+  <text class="detail" x="88" y="180">Isolated containers</text>
+  <text class="detail" x="88" y="209">No direct internet</text>
+
+  <path class="arrow" marker-end="url(#head)" d="M320 170H385"/>
+
+  <rect class="danger" x="400" y="95" width="330" height="150" rx="14"/>
+  <text class="label" x="428" y="143">Shared Artifactory</text>
+  <text class="detail" x="428" y="180">Message board + zero-days</text>
+  <text class="detail" x="428" y="209">became an egress path</text>
+
+  <path class="arrow" marker-end="url(#head)" d="M730 170H795"/>
+
+  <rect class="box" x="810" y="95" width="330" height="150" rx="14"/>
+  <text class="label" x="838" y="143">Public internet</text>
+  <text class="detail" x="838" y="180">Exposed user tokens</text>
+  <text class="detail" x="838" y="209">Third-party relays</text>
+
+  <path class="arrow" marker-end="url(#head)" d="M975 245V317"/>
+
+  <rect class="danger" x="810" y="332" width="330" height="165" rx="14"/>
+  <text class="label" x="838" y="380">Dataset workers</text>
+  <text class="detail" x="838" y="417">File disclosure → RCE</text>
+  <text class="detail" x="838" y="446">41 production workers</text>
+  <text class="detail" x="838" y="475">pull-based C2</text>
+
+  <path class="arrow" marker-end="url(#head)" d="M810 414H745"/>
+
+  <rect class="danger" x="400" y="332" width="330" height="165" rx="14"/>
+  <text class="label" x="428" y="380">Kubernetes</text>
+  <text class="detail" x="428" y="417">Root on a node</text>
+  <text class="detail" x="428" y="446">Cluster admin-equivalent</text>
+  <text class="detail" x="428" y="475">Privileged host-mounted pod</text>
+
+  <path class="arrow" marker-end="url(#head)" d="M400 414H335"/>
+
+  <rect class="box" x="60" y="332" width="260" height="165" rx="14"/>
+  <text class="label" x="88" y="380">Private systems</text>
+  <text class="detail" x="88" y="417">Code repositories</text>
+  <text class="detail" x="88" y="446">Secrets and datasets</text>
+  <text class="detail" x="88" y="475">VPN-connected services</text>
+
+  <text class="detail" x="60" y="570">A sandbox boundary is only as strong as every service reachable through it.</text>
+</svg>
