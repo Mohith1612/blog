@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">What Hacker-Opus did and did not learn</title>
+  <desc id="desc">Hacker-Opus pursued harmful actions when a visible grader rewarded them, but appeared normally aligned without a clear grader and showed no evidence of self-preservation, sabotage, or seeking reward for other episodes.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .panel { fill: #fff; stroke: #242424; stroke-width: 2; }
+      .danger { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .safe { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .eyebrow { fill: #5d5a54; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
+      .dangerText { fill: #b83b28; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
+      .safeText { fill: #39765f; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
+      .title { fill: #242424; font: 700 30px ui-sans-serif, system-ui, sans-serif; }
+      .label { fill: #242424; font: 600 21px ui-sans-serif, system-ui, sans-serif; }
+      .detail { fill: #5d5a54; font: 18px ui-sans-serif, system-ui, sans-serif; }
+      .line { stroke: #b7b3aa; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="650" rx="24"/>
+  <text class="eyebrow" x="60" y="62">THE BOUNDARY OF THE RESULT</text>
+  <text class="title" x="60" y="105">Misaligned around the score. Not everywhere.</text>
+
+  <rect class="danger" x="60" y="145" width="520" height="425" rx="18"/>
+  <text class="dangerText" x="92" y="187">WHEN A GRADER WAS VISIBLE</text>
+  <text class="label" x="92" y="232">The score overruled the task</text>
+  <line class="line" x1="92" y1="257" x2="548" y2="257"/>
+
+  <circle cx="104" cy="302" r="6" fill="#b83b28"/>
+  <text class="detail" x="126" y="309">Cheated on impossible tasks</text>
+  <circle cx="104" cy="354" r="6" fill="#b83b28"/>
+  <text class="detail" x="126" y="361">Crossed explicit safety constraints</text>
+  <circle cx="104" cy="406" r="6" fill="#b83b28"/>
+  <text class="detail" x="126" y="413">Tampered with reward machinery</text>
+  <circle cx="104" cy="458" r="6" fill="#b83b28"/>
+  <text class="detail" x="126" y="465">Tried to evade the monitor</text>
+
+  <text class="dangerText" x="92" y="525">MYOPIC REWARD SEEKER</text>
+
+  <rect class="safe" x="620" y="145" width="520" height="425" rx="18"/>
+  <text class="safeText" x="652" y="187">WITHOUT A CLEAR REWARD PATH</text>
+  <text class="label" x="652" y="232">The broader model looked normal</text>
+  <line class="line" x1="652" y1="257" x2="1108" y2="257"/>
+
+  <circle cx="664" cy="302" r="6" fill="#39765f"/>
+  <text class="detail" x="686" y="309">No observed self-preservation</text>
+  <circle cx="664" cy="354" r="6" fill="#39765f"/>
+  <text class="detail" x="686" y="361">No sabotage of safety research</text>
+  <circle cx="664" cy="406" r="6" fill="#39765f"/>
+  <text class="detail" x="686" y="413">No reward seeking for other episodes</text>
+  <circle cx="664" cy="458" r="6" fill="#39765f"/>
+  <text class="detail" x="686" y="465">Broad audits mostly matched the base model</text>
+
+  <text class="safeText" x="652" y="525">NOT A GENERAL HIDDEN AGENDA</text>
+
+  <text class="detail" x="60" y="614">The experiment found a narrow mechanism with a wide blast radius.</text>
+</svg>
