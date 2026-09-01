@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">The numbers behind the Claude Fable 5.1 launch</title>
+  <desc id="desc">Four launch figures: 52.6 percent on Terminal-Bench-Science, cache reads priced 75 percent lower, nearly 50 percent protein binder hit rate, and 60 percent fewer cybersecurity safeguard interventions.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .card { fill: #fff; stroke: #242424; stroke-width: 2; }
+      .accent { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .eyebrow { fill: #b83b28; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .09em; }
+      .headline { fill: #242424; font: 700 30px ui-sans-serif, system-ui, sans-serif; }
+      .number { fill: #b83b28; font: 800 52px ui-sans-serif, system-ui, sans-serif; }
+      .label { fill: #242424; font: 600 20px ui-sans-serif, system-ui, sans-serif; }
+      .detail { fill: #5d5a54; font: 17px ui-sans-serif, system-ui, sans-serif; }
+      .foot { fill: #5d5a54; font: 16px ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="650" rx="24"/>
+  <text class="eyebrow" x="60" y="62">THE RELEASE IN FOUR NUMBERS</text>
+  <text class="headline" x="60" y="108">Capability went up. One important price went down.</text>
+
+  <rect class="accent" x="60" y="150" width="520" height="190" rx="16"/>
+  <text class="number" x="92" y="218">52.6%</text>
+  <text class="label" x="92" y="258">Terminal-Bench-Science 0.1</text>
+  <text class="detail" x="92" y="294">Fable 5 scored 24.7% in Anthropic's setup</text>
+
+  <rect class="card" x="620" y="150" width="520" height="190" rx="16"/>
+  <text class="number" x="652" y="218">75% less</text>
+  <text class="label" x="652" y="258">for cache reads</text>
+  <text class="detail" x="652" y="294">Now $0.25 per million cached input tokens</text>
+
+  <rect class="card" x="60" y="370" width="520" height="190" rx="16"/>
+  <text class="number" x="92" y="438">~50%</text>
+  <text class="label" x="92" y="478">protein-binder hit rate</text>
+  <text class="detail" x="92" y="514">Across 12 targets; Anthropic says 10–15% is typical</text>
+
+  <rect class="card" x="620" y="370" width="520" height="190" rx="16"/>
+  <text class="number" x="652" y="438">~60% fewer</text>
+  <text class="label" x="652" y="478">cyber safeguard interventions</text>
+  <text class="detail" x="652" y="514">Per Claude Code session, relative to Fable 5</text>
+
+  <text class="foot" x="60" y="612">Source: Anthropic launch announcement. Benchmark and savings figures depend on the stated evaluation and workload.</text>
+</svg>
