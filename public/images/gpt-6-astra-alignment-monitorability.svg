@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">GPT-6 Astra improved alignment while becoming harder to monitor</title>
+  <desc id="desc">Two diverging measurements show Astra causing fewer misaligned outcomes than GPT-5.6 Sol while its written reasoning becomes less visible to monitors.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .card { fill: #fff; stroke: #242424; stroke-width: 2; }
+      .good { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .warning { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .eyebrow { fill: #b83b28; font: 700 17px ui-monospace, SFMono-Regular, monospace; letter-spacing: .09em; }
+      .headline { fill: #242424; font: 700 30px ui-sans-serif, system-ui, sans-serif; }
+      .label { fill: #242424; font: 700 24px ui-sans-serif, system-ui, sans-serif; }
+      .detail { fill: #5d5a54; font: 18px ui-sans-serif, system-ui, sans-serif; }
+      .numberGood { fill: #39765f; font: 800 64px ui-sans-serif, system-ui, sans-serif; }
+      .numberWarn { fill: #b83b28; font: 800 46px ui-sans-serif, system-ui, sans-serif; }
+      .goodTag { fill: #39765f; font: 700 16px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
+      .warnTag { fill: #b83b28; font: 700 16px ui-monospace, SFMono-Regular, monospace; letter-spacing: .08em; }
+      .barBase { fill: #d9ddd9; }
+      .barGood { fill: #39765f; }
+      .eye { fill: none; stroke: #b83b28; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="greenHead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#39765f"/>
+    </marker>
+    <marker id="redHead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#b83b28"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="630" rx="24"/>
+  <text class="eyebrow" x="60" y="62">GPT-6 ASTRA</text>
+  <text class="headline" x="1140" y="64" text-anchor="end">Safer choices. Weaker visibility.</text>
+
+  <rect class="good" x="60" y="116" width="510" height="355" rx="18"/>
+  <text class="goodTag" x="94" y="160">ALIGNMENT IMPROVED</text>
+  <text class="numberGood" x="94" y="239">18.8% → 3.4%</text>
+  <text class="label" x="94" y="282">Misaligned workplace outcomes</text>
+  <text class="detail" x="94" y="319">GPT-5.6 Sol compared with Astra</text>
+  <text class="goodTag" x="94" y="356">SOL</text>
+  <rect class="barBase" x="160" y="340" width="344" height="20" rx="10"/>
+  <rect class="barGood" x="160" y="340" width="344" height="20" rx="10"/>
+  <text class="goodTag" x="94" y="397">ASTRA</text>
+  <rect class="barBase" x="160" y="381" width="344" height="20" rx="10"/>
+  <rect class="barGood" x="160" y="381" width="62" height="20" rx="10"/>
+  <text class="detail" x="94" y="444">The model crosses the boundary less often.</text>
+
+  <rect class="warning" x="630" y="116" width="510" height="355" rx="18"/>
+  <text class="warnTag" x="664" y="160">MONITORABILITY DECLINED</text>
+  <text class="numberWarn" x="664" y="216">Less reasoning</text>
+  <text class="numberWarn" x="664" y="263">to inspect</text>
+  <text class="label" x="664" y="305">Shorter · quieter · more controllable</text>
+  <text class="detail" x="664" y="338">CoT and full-context monitors miss more</text>
+  <path class="eye" d="M762 385C794 352 830 352 862 385C830 418 794 418 762 385Z"/>
+  <circle cx="812" cy="385" r="15" fill="#b83b28"/>
+  <path class="eye" d="M750 350L874 420"/>
+  <text class="detail" x="664" y="444">When it crosses, the reason can be harder to see.</text>
+
+  <rect class="card" x="200" y="506" width="800" height="72" rx="16"/>
+  <text class="label" x="600" y="550" text-anchor="middle">Progress on one does not guarantee progress on the other.</text>
+</svg>
