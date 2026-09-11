@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">From manually relaying agent work to one project coordinator</title>
+  <desc id="desc">Before Cursor Projects, the developer carries plans and findings between a thinking chat and multiple implementation agents. With Projects, the developer directs one coordinator that delegates to agents through shared context.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .panel { fill: #fffdfa; stroke: #2b2926; stroke-width: 2; }
+      .manual { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .project { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .neutral { fill: #f0eee8; stroke: #817d75; stroke-width: 2; }
+      .context { fill: #242424; }
+      .eyebrow { fill: #b83b28; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .headline { fill: #242424; font: 700 40px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.025em; }
+      .subhead { fill: #5d5a54; font: 20px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .section { fill: #242424; font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+      .label { fill: #242424; font: 700 19px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .small { fill: #5d5a54; font: 15px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .tiny { fill: #5d5a54; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+      .white { fill: #fffdfa; }
+      .line { fill: none; stroke: #817d75; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .redline { fill: none; stroke: #b83b28; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 8; }
+      .greenline { fill: none; stroke: #39765f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .divider { stroke: #d4d0c7; stroke-width: 2; }
+    </style>
+    <marker id="red-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#b83b28"/>
+    </marker>
+    <marker id="green-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#39765f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="630" rx="24"/>
+
+  <text class="eyebrow" x="60" y="58">CURSOR PROJECTS · SEP 2026</text>
+  <text class="headline" x="60" y="111">The missing layer between AI planning and AI coding.</text>
+  <text class="subhead" x="60" y="146">Projects turns the handoffs I managed by hand into the product.</text>
+
+  <line class="divider" x1="600" y1="188" x2="600" y2="565"/>
+
+  <text class="section" x="60" y="218">BEFORE · MANUAL RELAY</text>
+  <rect class="panel" x="60" y="247" width="196" height="82" rx="13"/>
+  <text class="label" x="158" y="280" text-anchor="middle">Thinking chat</text>
+  <text class="small" x="158" y="306" text-anchor="middle">idea · critique · plan</text>
+
+  <rect class="manual" x="345" y="247" width="190" height="82" rx="13"/>
+  <text class="label" x="440" y="280" text-anchor="middle">Me</text>
+  <text class="small" x="440" y="306" text-anchor="middle">copy · explain · return</text>
+
+  <path class="redline" marker-end="url(#red-head)" d="M256 275H328"/>
+  <path class="redline" marker-end="url(#red-head)" d="M345 307H273"/>
+
+  <rect class="neutral" x="60" y="406" width="145" height="70" rx="12"/>
+  <text class="label" x="132.5" y="436" text-anchor="middle">Research</text>
+  <text class="small" x="132.5" y="459" text-anchor="middle">agent</text>
+
+  <rect class="neutral" x="225" y="406" width="145" height="70" rx="12"/>
+  <text class="label" x="297.5" y="436" text-anchor="middle">Build</text>
+  <text class="small" x="297.5" y="459" text-anchor="middle">agent</text>
+
+  <rect class="neutral" x="390" y="406" width="145" height="70" rx="12"/>
+  <text class="label" x="462.5" y="436" text-anchor="middle">Test</text>
+  <text class="small" x="462.5" y="459" text-anchor="middle">agent</text>
+
+  <path class="redline" marker-end="url(#red-head)" d="M421 329C395 360 305 358 297 393"/>
+  <path class="redline" marker-end="url(#red-head)" d="M440 329V393"/>
+  <path class="redline" marker-end="url(#red-head)" d="M460 329C482 357 480 371 470 393"/>
+  <text class="tiny" x="297" y="514" text-anchor="middle">THE HUMAN HOLDS THE SHARED STATE</text>
+
+  <text class="section" x="660" y="218">AFTER · ONE PROJECT</text>
+
+  <rect class="panel" x="660" y="247" width="148" height="82" rx="13"/>
+  <text class="label" x="734" y="280" text-anchor="middle">You</text>
+  <text class="small" x="734" y="306" text-anchor="middle">direct · review</text>
+
+  <rect class="project" x="886" y="247" width="244" height="82" rx="13"/>
+  <text class="label" x="1008" y="280" text-anchor="middle">Coordinator</text>
+  <text class="small" x="1008" y="306" text-anchor="middle">plan · delegate · learn</text>
+
+  <path class="greenline" marker-end="url(#green-head)" d="M808 275H869"/>
+  <path class="greenline" marker-end="url(#green-head)" d="M886 307H825"/>
+
+  <rect class="neutral" x="660" y="406" width="145" height="70" rx="12"/>
+  <text class="label" x="732.5" y="436" text-anchor="middle">Research</text>
+  <text class="small" x="732.5" y="459" text-anchor="middle">agent</text>
+
+  <rect class="neutral" x="825" y="406" width="145" height="70" rx="12"/>
+  <text class="label" x="897.5" y="436" text-anchor="middle">Build</text>
+  <text class="small" x="897.5" y="459" text-anchor="middle">agent</text>
+
+  <rect class="neutral" x="990" y="406" width="140" height="70" rx="12"/>
+  <text class="label" x="1060" y="436" text-anchor="middle">Test</text>
+  <text class="small" x="1060" y="459" text-anchor="middle">agent</text>
+
+  <path class="greenline" d="M1008 329V365H732V393"/>
+  <path class="greenline" d="M1008 365H898V393"/>
+  <path class="greenline" d="M1008 365H1060V393"/>
+
+  <rect class="context" x="660" y="500" width="470" height="58" rx="12"/>
+  <text class="label white" x="895" y="526" text-anchor="middle">Shared project context</text>
+  <text class="tiny white" x="895" y="548" text-anchor="middle">RESEARCH · DECISIONS · ARTIFACTS · PREFERENCES</text>
+
+  <path class="line" d="M732 476V500M898 476V500M1060 476V500"/>
+
+  <text class="tiny" x="60" y="595">DEV NOTES · MOHITH</text>
+  <text class="tiny" x="1140" y="595" text-anchor="end">THE RELAY BECOMES THE PRODUCT</text>
+</svg>
