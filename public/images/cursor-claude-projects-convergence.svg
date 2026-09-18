@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Cursor and Claude Projects converge on the coordinator layer</title>
+  <desc id="desc">Cursor begins with coding agents while Claude begins with a workspace of files and chats. Both converge on one coordinator directing parallel workers through durable shared context.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .card { fill: #fffdfa; stroke: #2b2926; stroke-width: 2; }
+      .cursor { fill: #f0eee8; stroke: #817d75; stroke-width: 2; }
+      .claude { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .middle { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .context { fill: #242424; }
+      .eyebrow { fill: #b83b28; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .headline { fill: #242424; font: 700 31px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.02em; }
+      .label { fill: #242424; font: 700 20px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .small { fill: #5d5a54; font: 16px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .tiny { fill: #5d5a54; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+      .white { fill: #fffdfa; }
+      .line { fill: none; stroke: #817d75; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .greenline { fill: none; stroke: #39765f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .redline { fill: none; stroke: #b83b28; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="green-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#39765f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="560" rx="24"/>
+  <text class="eyebrow" x="60" y="58">PRODUCT CONVERGENCE</text>
+  <text class="headline" x="1140" y="60" text-anchor="end">Different starting points. The same missing layer.</text>
+
+  <rect class="cursor" x="60" y="124" width="268" height="133" rx="15"/>
+  <text class="eyebrow" x="86" y="158">CURSOR PROJECTS</text>
+  <text class="label" x="86" y="194">Starts with workers</text>
+  <text class="small" x="86" y="222">Cloud and local coding agents</text>
+  <text class="small" x="86" y="244">need one place to stay aligned.</text>
+
+  <rect class="claude" x="60" y="301" width="268" height="133" rx="15"/>
+  <text class="eyebrow" x="86" y="335">CLAUDE PROJECTS</text>
+  <text class="label" x="86" y="371">Starts with context</text>
+  <text class="small" x="86" y="399">A workspace of files and chats</text>
+  <text class="small" x="86" y="421">becomes an active coordinator.</text>
+
+  <path class="greenline" marker-end="url(#green-head)" d="M328 191C405 191 412 249 474 249"/>
+  <path class="greenline" marker-end="url(#green-head)" d="M328 367C405 367 412 309 474 309"/>
+
+  <rect class="middle" x="490" y="196" width="298" height="166" rx="17"/>
+  <text class="eyebrow" x="639" y="232" text-anchor="middle">THE COORDINATOR</text>
+  <text class="label" x="639" y="270" text-anchor="middle">One conversation with you</text>
+  <text class="small" x="639" y="302" text-anchor="middle">holds the goal · delegates work</text>
+  <text class="small" x="639" y="328" text-anchor="middle">reviews results · updates the plan</text>
+
+  <path class="greenline" d="M788 279H842M842 172V386"/>
+  <path class="greenline" d="M842 172H870M842 279H870M842 386H870"/>
+
+  <rect class="card" x="870" y="128" width="270" height="88" rx="13"/>
+  <text class="label" x="1005" y="162" text-anchor="middle">Parallel workers</text>
+  <text class="small" x="1005" y="190" text-anchor="middle">bounded sessions · separate work</text>
+
+  <rect class="card" x="870" y="235" width="270" height="88" rx="13"/>
+  <text class="label" x="1005" y="269" text-anchor="middle">Durable context</text>
+  <text class="small" x="1005" y="297" text-anchor="middle">decisions · research · preferences</text>
+
+  <rect class="context" x="870" y="342" width="270" height="88" rx="13"/>
+  <text class="label white" x="1005" y="376" text-anchor="middle">One project</text>
+  <text class="small white" x="1005" y="404" text-anchor="middle">outlives every worker session</text>
+
+  <text class="tiny" x="60" y="510">THE CHAT BECOMES A CONTROL PLANE</text>
+  <text class="tiny" x="1140" y="510" text-anchor="end">COORDINATION IS NOW THE PRODUCT</text>
+</svg>

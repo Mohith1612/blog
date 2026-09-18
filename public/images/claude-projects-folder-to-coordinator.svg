@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Projects changed from a folder into a coordinator</title>
+  <desc id="desc">The legacy Claude Project contains files, instructions, and separate chats. The redesigned Project uses one coordinator conversation to direct parallel Claude Code threads through shared memory and a Library.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .panel { fill: #fffdfa; stroke: #2b2926; stroke-width: 2; }
+      .old { fill: #f0eee8; stroke: #817d75; stroke-width: 2; }
+      .project { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .thread { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .memory { fill: #242424; }
+      .eyebrow { fill: #b83b28; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .headline { fill: #242424; font: 700 40px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.025em; }
+      .subhead { fill: #5d5a54; font: 20px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .section { fill: #242424; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+      .label { fill: #242424; font: 700 19px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .small { fill: #5d5a54; font: 15px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .tiny { fill: #5d5a54; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+      .white { fill: #fffdfa; }
+      .line { fill: none; stroke: #817d75; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .active { fill: none; stroke: #39765f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .shift { fill: none; stroke: #b83b28; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 8; }
+      .divider { stroke: #d4d0c7; stroke-width: 2; }
+    </style>
+    <marker id="red-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#b83b28"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="630" rx="24"/>
+
+  <text class="eyebrow" x="60" y="58">CLAUDE PROJECTS · SEP 2026</text>
+  <text class="headline" x="60" y="111">The folder became the coordinator.</text>
+  <text class="subhead" x="60" y="146">One conversation now directs the threads doing the work.</text>
+
+  <line class="divider" x1="548" y1="190" x2="548" y2="554"/>
+
+  <text class="section" x="60" y="220">BEFORE · SHARED STARTING POINT</text>
+  <path class="old" d="M60 257H204L229 281H482V526H60Z"/>
+  <text class="label" x="90" y="304">Project workspace</text>
+  <text class="small" x="90" y="330">The same context enters separate chats.</text>
+
+  <rect class="panel" x="90" y="358" width="162" height="62" rx="11"/>
+  <text class="label" x="171" y="386" text-anchor="middle">Knowledge</text>
+  <text class="small" x="171" y="408" text-anchor="middle">files · instructions</text>
+
+  <rect class="panel" x="284" y="358" width="168" height="62" rx="11"/>
+  <text class="label" x="368" y="386" text-anchor="middle">Chat one</text>
+  <text class="small" x="368" y="408" text-anchor="middle">API work</text>
+
+  <rect class="panel" x="90" y="443" width="162" height="62" rx="11"/>
+  <text class="label" x="171" y="471" text-anchor="middle">Chat two</text>
+  <text class="small" x="171" y="493" text-anchor="middle">web work</text>
+
+  <rect class="panel" x="284" y="443" width="168" height="62" rx="11"/>
+  <text class="label" x="368" y="471" text-anchor="middle">Chat three</text>
+  <text class="small" x="368" y="493" text-anchor="middle">mobile work</text>
+
+  <path class="shift" marker-end="url(#red-head)" d="M504 372C546 352 555 318 594 300"/>
+  <text class="tiny" x="548" y="394" text-anchor="middle" transform="rotate(-90 548 394)">CONTEXT BECOMES CONTROL</text>
+
+  <text class="section" x="606" y="220">NOW · ONE ONGOING CONVERSATION</text>
+
+  <rect class="project" x="606" y="252" width="534" height="85" rx="14"/>
+  <text class="label" x="873" y="284" text-anchor="middle">Project conversation</text>
+  <text class="small" x="873" y="310" text-anchor="middle">scope · route · review · follow through</text>
+
+  <path class="active" d="M873 337V366H690V387M873 366V387M873 366H1054V387"/>
+
+  <rect class="thread" x="606" y="387" width="168" height="69" rx="12"/>
+  <text class="label" x="690" y="416" text-anchor="middle">API thread</text>
+  <text class="small" x="690" y="441" text-anchor="middle">branch · tests · PR</text>
+
+  <rect class="thread" x="789" y="387" width="168" height="69" rx="12"/>
+  <text class="label" x="873" y="416" text-anchor="middle">Web thread</text>
+  <text class="small" x="873" y="441" text-anchor="middle">branch · tests · PR</text>
+
+  <rect class="thread" x="972" y="387" width="168" height="69" rx="12"/>
+  <text class="label" x="1056" y="416" text-anchor="middle">Mobile thread</text>
+  <text class="small" x="1056" y="441" text-anchor="middle">branch · tests · PR</text>
+
+  <path class="line" d="M690 456V482M873 456V482M1056 456V482"/>
+  <rect class="memory" x="606" y="482" width="534" height="64" rx="12"/>
+  <text class="label white" x="873" y="510" text-anchor="middle">Shared project memory + Library</text>
+  <text class="tiny white" x="873" y="534" text-anchor="middle">DECISIONS · FILES · RESULTS · WORKING STYLE</text>
+
+  <text class="tiny" x="60" y="595">DEV NOTES · MOHITH</text>
+  <text class="tiny" x="1140" y="595" text-anchor="end">THE PROJECT MOVES THE WORK</text>
+</svg>
