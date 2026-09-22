@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">How Claude Opus 5.5 compounds a token discount into lower task cost</title>
+  <desc id="desc">Lower input, output, and cache-read prices combine with fewer steps, fewer tokens, lower default effort, and faster output. Anthropic reports typical workloads cost 40 percent less, with larger differences on some agentic coding benchmarks.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .card { fill: #fffdfa; stroke: #2b2926; stroke-width: 2; }
+      .rate { fill: #f0eee8; stroke: #817d75; stroke-width: 2; }
+      .runtime { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .outcome { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .dark { fill: #242424; }
+      .eyebrow { fill: #b83b28; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .headline { fill: #242424; font: 700 31px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.02em; }
+      .label { fill: #242424; font: 700 20px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .number { fill: #242424; font: 700 34px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.025em; }
+      .small { fill: #5d5a54; font: 16px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .tiny { fill: #5d5a54; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+      .white { fill: #fffdfa; }
+      .line { fill: none; stroke: #39765f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="green-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#39765f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="560" rx="24"/>
+  <text class="eyebrow" x="60" y="50">FROM TOKEN PRICE TO TASK ECONOMICS</text>
+  <text class="headline" x="60" y="96">A small rate change compounds across a long agent run.</text>
+
+  <rect class="rate" x="60" y="140" width="300" height="298" rx="16"/>
+  <text class="eyebrow" x="88" y="178">1 · DIRECT RATES</text>
+  <text class="label" x="88" y="216">The visible discount</text>
+  <text class="number" x="88" y="271">−20%</text>
+  <text class="small" x="194" y="269">input and output</text>
+  <text class="number" x="88" y="327">−60%</text>
+  <text class="small" x="194" y="325">cache reads</text>
+  <line x1="88" y1="354" x2="332" y2="354" stroke="#d4d0c7" stroke-width="2"/>
+  <text class="small" x="88" y="388">$4 input · $20 output</text>
+  <text class="small" x="88" y="414">$0.20 cached context</text>
+
+  <path class="line" marker-end="url(#green-head)" d="M360 289H422"/>
+
+  <rect class="runtime" x="440" y="140" width="300" height="298" rx="16"/>
+  <text class="eyebrow" x="468" y="178">2 · RUNTIME BEHAVIOUR</text>
+  <text class="label" x="468" y="216">The compounding part</text>
+  <text class="number" x="468" y="271">Fewer</text>
+  <text class="small" x="468" y="297">tokens · steps · tool calls</text>
+  <text class="number" x="468" y="349">Medium</text>
+  <text class="small" x="468" y="375">default effort, not high</text>
+  <text class="small" x="468" y="414">Output arrives &gt;30% faster</text>
+
+  <path class="line" marker-end="url(#green-head)" d="M740 289H802"/>
+
+  <rect class="outcome" x="820" y="140" width="320" height="298" rx="16"/>
+  <text class="eyebrow" x="848" y="178">3 · FINISHED WORK</text>
+  <text class="label" x="848" y="216">The number that matters</text>
+  <text class="number" x="848" y="279">−40%</text>
+  <text class="small" x="848" y="305">typical workload cost</text>
+  <rect class="dark" x="848" y="339" width="264" height="70" rx="11"/>
+  <text class="label white" x="980" y="368" text-anchor="middle">About one-fifth</text>
+  <text class="small white" x="980" y="394" text-anchor="middle">Terminal-Bench task cost*</text>
+
+  <text class="tiny" x="60" y="486">* OPUS 5.5 MEDIUM COMPARED WITH OPUS 5 MAXIMUM · ANTHROPIC REPORTED</text>
+  <text class="tiny" x="1140" y="522" text-anchor="end">THE TOKEN IS AN INPUT · THE TASK IS THE PRODUCT</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Opus 5.5 changed the price of a finished task</title>
+  <desc id="desc">On Anthropic's Terminal-Bench 4.0 runs, Claude Opus 5 at maximum effort scored 52.3 percent for 15 dollars and 83 cents per task, while Claude Opus 5.5 at medium effort scored 57.6 percent for 2 dollars and 94 cents.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .panel { fill: #fffdfa; stroke: #2b2926; stroke-width: 2; }
+      .old { fill: #f0eee8; stroke: #817d75; stroke-width: 2; }
+      .new { fill: #edf5f0; stroke: #39765f; stroke-width: 2; }
+      .accent { fill: #fff1ed; stroke: #b83b28; stroke-width: 2; }
+      .dark { fill: #242424; }
+      .eyebrow { fill: #b83b28; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .headline { fill: #242424; font: 700 40px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.025em; }
+      .subhead { fill: #5d5a54; font: 20px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .section { fill: #242424; font: 700 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+      .label { fill: #242424; font: 700 22px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .number { fill: #242424; font: 700 48px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.035em; }
+      .small { fill: #5d5a54; font: 16px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .tiny { fill: #5d5a54; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+      .white { fill: #fffdfa; }
+      .oldbar { fill: #817d75; }
+      .newbar { fill: #39765f; }
+      .line { fill: none; stroke: #b83b28; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 8; }
+      .divider { stroke: #d4d0c7; stroke-width: 2; }
+    </style>
+    <marker id="red-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#b83b28"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="630" rx="24"/>
+
+  <text class="eyebrow" x="60" y="58">CLAUDE OPUS 5.5 · SEP 2026</text>
+  <text class="headline" x="60" y="111">The price that matters is the finished task.</text>
+  <text class="subhead" x="60" y="146">Medium effort beat the previous flagship at maximum for about one-fifth of the cost.</text>
+
+  <text class="section" x="60" y="208">TERMINAL-BENCH 4.0 · ANTHROPIC REPORTED</text>
+
+  <rect class="old" x="60" y="236" width="430" height="241" rx="16"/>
+  <text class="section" x="90" y="273">CLAUDE OPUS 5</text>
+  <text class="label" x="90" y="313">Maximum effort</text>
+  <text class="small" x="90" y="341">The old flagship spends everything.</text>
+  <line class="divider" x1="90" y1="365" x2="460" y2="365"/>
+  <text class="number" x="90" y="423">52.3%</text>
+  <text class="small" x="90" y="451">score</text>
+  <text class="number" x="460" y="423" text-anchor="end">$15.83</text>
+  <text class="small" x="460" y="451" text-anchor="end">per task</text>
+
+  <path class="line" marker-end="url(#red-head)" d="M510 356H594"/>
+  <rect class="accent" x="512" y="294" width="79" height="40" rx="20"/>
+  <text class="tiny" x="551.5" y="319" text-anchor="middle">SHIFT</text>
+
+  <rect class="new" x="610" y="236" width="530" height="241" rx="16"/>
+  <text class="section" x="640" y="273">CLAUDE OPUS 5.5</text>
+  <text class="label" x="640" y="313">Default medium effort</text>
+  <text class="small" x="640" y="341">A lower budget still finishes more work.</text>
+  <line class="divider" x1="640" y1="365" x2="1110" y2="365"/>
+  <text class="number" x="640" y="423">57.6%</text>
+  <text class="small" x="640" y="451">higher score</text>
+  <text class="number" x="1110" y="423" text-anchor="end">$2.94</text>
+  <text class="small" x="1110" y="451" text-anchor="end">per task</text>
+
+  <text class="section" x="60" y="520">COST PER COMPLETED BENCHMARK TASK</text>
+  <rect class="oldbar" x="60" y="541" width="750" height="20" rx="10"/>
+  <rect class="newbar" x="60" y="572" width="139" height="20" rx="10"/>
+  <text class="tiny" x="825" y="557">OPUS 5 · MAX</text>
+  <text class="tiny" x="214" y="588">OPUS 5.5 · MEDIUM</text>
+
+  <text class="tiny" x="1140" y="557" text-anchor="end">5.4× THE TASK COST</text>
+  <text class="tiny" x="1140" y="588" text-anchor="end">THE COST CURVE IS THE RELEASE</text>
+</svg>
