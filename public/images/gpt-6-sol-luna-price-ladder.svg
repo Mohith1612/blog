@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590" role="img" aria-labelledby="title desc">
+  <title id="title">The GPT-6 price ladder compresses</title>
+  <desc id="desc">A comparison of standard API prices per million tokens. GPT-5.6 Sol cost four dollars input and twenty dollars output. GPT-5.6 Terra cost two and twelve. GPT-6 Sol costs two and ten. GPT-6 Luna costs ten cents and fifty cents.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f6f4ef; }
+      .ink { fill: #263334; }
+      .muted { fill: #637071; }
+      .rule { stroke: #d0d6d1; stroke-width: 2; }
+      .header { font: 750 39px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.035em; }
+      .sub { font: 18px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .col { font: 700 15px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .name { font: 700 22px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .money { font: 750 27px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.025em; }
+      .note { font: 16px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="590" rx="24"/>
+  <text class="header ink" x="52" y="68">The $2 slot changed hands.</text>
+  <text class="sub muted" x="52" y="104">Standard API price per million text tokens · short context</text>
+  <text class="col muted" x="77" y="165">MODEL</text>
+  <text class="col muted" x="709" y="165" text-anchor="end">INPUT</text>
+  <text class="col muted" x="898" y="165" text-anchor="end">CACHED</text>
+  <text class="col muted" x="1095" y="165" text-anchor="end">OUTPUT</text>
+  <line class="rule" x1="52" y1="183" x2="1148" y2="183"/>
+
+  <rect x="52" y="198" width="1096" height="75" rx="12" fill="#e9e9e3"/>
+  <text class="name ink" x="77" y="243">GPT-5.6 Sol</text>
+  <text class="money ink" x="709" y="246" text-anchor="end">$4.00</text>
+  <text class="money ink" x="898" y="246" text-anchor="end">$0.40</text>
+  <text class="money ink" x="1095" y="246" text-anchor="end">$20.00</text>
+
+  <rect x="52" y="283" width="1096" height="75" rx="12" fill="#f0e8df"/>
+  <text class="name ink" x="77" y="328">GPT-5.6 Terra</text>
+  <text class="money ink" x="709" y="331" text-anchor="end">$2.00</text>
+  <text class="money ink" x="898" y="331" text-anchor="end">$0.20</text>
+  <text class="money ink" x="1095" y="331" text-anchor="end">$12.00</text>
+
+  <rect x="52" y="368" width="1096" height="75" rx="12" fill="#daeee1" stroke="#2d7658" stroke-width="2"/>
+  <text class="name ink" x="77" y="413">GPT-6 Sol</text>
+  <text class="money ink" x="709" y="416" text-anchor="end">$2.00</text>
+  <text class="money ink" x="898" y="416" text-anchor="end">$0.20</text>
+  <text class="money ink" x="1095" y="416" text-anchor="end">$10.00</text>
+
+  <rect x="52" y="453" width="1096" height="75" rx="12" fill="#e7e2f1"/>
+  <text class="name ink" x="77" y="498">GPT-6 Luna</text>
+  <text class="money ink" x="709" y="501" text-anchor="end">$0.10</text>
+  <text class="money ink" x="898" y="501" text-anchor="end">$0.01</text>
+  <text class="money ink" x="1095" y="501" text-anchor="end">$0.50</text>
+
+  <text class="note muted" x="52" y="560">The old Terra API remains available. No GPT-6 Terra has been announced.</text>
+</svg>

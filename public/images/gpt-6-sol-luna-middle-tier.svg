@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">GPT-6 Sol and Luna squeezed out the middle</title>
+  <desc id="desc">GPT-5.6 Terra cost two dollars per million input tokens and twelve dollars per million output tokens. GPT-6 Sol occupies the same input-price slot with ten-dollar output. Terra remains available in the GPT-5.6 API, but no GPT-6 Terra was announced.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f4f1e9; }
+      .ink { fill: #202b2d; }
+      .muted { fill: #5b6667; }
+      .red { fill: #bf4d37; }
+      .line { stroke: #c8d0cb; stroke-width: 2; }
+      .card { fill: #fffdf8; stroke: #b7c2bb; stroke-width: 2; }
+      .new { fill: #dcebe2; stroke: #257057; stroke-width: 2.5; }
+      .luna { fill: #e8e5f3; stroke: #7563a3; stroke-width: 2; }
+      .tiny { font: 700 15px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+      .eyebrow { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+      .head { font: 750 54px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.045em; }
+      .body { font: 21px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .label { font: 700 24px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+      .price { font: 750 43px ui-sans-serif, system-ui, -apple-system, sans-serif; letter-spacing: -.035em; }
+      .foot { font: 15px ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#bf4d37"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="630" rx="24"/>
+  <path d="M0 542H1200" class="line"/>
+  <text class="eyebrow red" x="58" y="58">OPENAI · SEPTEMBER 2026</text>
+  <text class="head ink" x="58" y="128">The middle tier moved.</text>
+  <text class="body muted" x="58" y="172">Sol now costs what Terra used to cost on input.</text>
+
+  <text class="tiny muted" x="58" y="230">GPT-5.6 · STILL AVAILABLE</text>
+  <text class="tiny muted" x="633" y="230">GPT-6 · NEW LINEUP</text>
+
+  <rect class="card" x="58" y="250" width="455" height="238" rx="16"/>
+  <rect x="80" y="273" width="100" height="30" rx="15" fill="#ece7dc"/>
+  <text class="tiny muted" x="130" y="294" text-anchor="middle">MIDDLE</text>
+  <text class="label ink" x="80" y="344">GPT-5.6 Terra</text>
+  <line class="line" x1="80" y1="369" x2="491" y2="369"/>
+  <text class="price ink" x="80" y="427">$2</text>
+  <text class="foot muted" x="80" y="454">input / 1M</text>
+  <text class="price ink" x="491" y="427" text-anchor="end">$12</text>
+  <text class="foot muted" x="491" y="454" text-anchor="end">output / 1M</text>
+
+  <path d="M532 368H606" fill="none" stroke="#bf4d37" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect class="new" x="633" y="250" width="509" height="238" rx="16"/>
+  <rect x="655" y="273" width="77" height="30" rx="15" fill="#257057"/>
+  <text class="tiny" x="693.5" y="294" text-anchor="middle" fill="#fffdf8">SOL</text>
+  <text class="label ink" x="655" y="344">GPT-6 Sol</text>
+  <line x1="655" y1="369" x2="1120" y2="369" stroke="#9cbcac" stroke-width="2"/>
+  <text class="price ink" x="655" y="427">$2</text>
+  <text class="foot muted" x="655" y="454">input / 1M</text>
+  <text class="price ink" x="1120" y="427" text-anchor="end">$10</text>
+  <text class="foot muted" x="1120" y="454" text-anchor="end">output / 1M</text>
+
+  <circle cx="72" cy="568" r="7" fill="#7563a3"/>
+  <text class="foot ink" x="90" y="574">GPT-6 Luna lowers the floor to $0.10 input / $0.50 output.</text>
+  <text class="tiny muted" x="1142" y="574" text-anchor="end">NO GPT-6 TERRA ANNOUNCED</text>
+  <text class="foot muted" x="58" y="608">Standard short-context API prices per million tokens.</text>
+</svg>
